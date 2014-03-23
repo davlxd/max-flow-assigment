@@ -20,6 +20,7 @@ public:
 	long getUnitCost();
 
 	long getCapacity();
+	void setCapacity(long capacity);
 	long long getCapacityCost();
 
 private:

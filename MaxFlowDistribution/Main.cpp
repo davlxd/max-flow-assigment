@@ -40,7 +40,8 @@ void test_map_init() {
 		for (int i = 0; i < n->outPaths->size(); i++) {
 			Path *p = n->outPaths->at(i);
 			Node *n1 = n->nextNodes->at(i);
-			cout << "    " << n1->getName() << "        " << p->getUnit() << "  " << p->getUnitCost() << endl;
+			//cout << "    " << n1->getName() << "        " << p->getUnit() << "  " << p->getUnitCost() << "      " << p->getCapacity() << "  " << p->getLimit() << endl;
+			cout << "    " << n1->getName() << "        " << p->getUnit() << "  " << p->getUnitCost() << "      " << p->getCapacity() << "  " << p->getLimit() << endl;
 		}
 
 		//cout << n->getName() << "  " << n->inPaths->size() << "  " << n->outPaths->size() << endl;

@@ -19,6 +19,9 @@ long Path::getUnitCost() {
 	return unitCost;
 }
 
+void Path::setCapacity(long capacity) {
+	this->capacity = capacity;
+}
 long Path::getCapacity() {
 	long calculated_capacity = limit * unit;
 	return calculated_capacity < capacity ? calculated_capacity : capacity;
