@@ -4,7 +4,7 @@ Node::Node(string name) : name(name){
 	//this->name = name;
 	inPaths = new vector<Path*>;
 	outPaths = new vector<Path*>;
-	next = NULL;
+	nextNodes = new vector<Node*>;
 }
 
 void Node::addInPaths(Path *n) {

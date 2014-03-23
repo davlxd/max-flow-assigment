@@ -31,25 +31,19 @@ void test_node_init() {
 void test_map_init() {
 	Map *map = new Map();
 	map->init();
-	cout << map->nodeList->size() << endl;
 
 	for (vector<Node*>::iterator it = map->nodeList->begin(); it != map->nodeList->end(); it++)
 	{
 		Node *n = *it;
 		cout << n->getName() << endl;
 
-		for (vector<Path*>::iterator it1 = n->inPaths->begin(); it1 != n->inPaths->end(); it1++) {
-			Path *p = *it1;
-			cout << "    " << p->getUnit() << "  " << p->getUnitCost() <<  endl;
+		for (int i = 0; i < n->outPaths->size(); i++) {
+			Path *p = n->outPaths->at(i);
+			Node *n1 = n->nextNodes->at(i);
+			cout << "    " << n1->getName() << "        " << p->getUnit() << "  " << p->getUnitCost() << endl;
 		}
 
-		for (vector<Path*>::iterator it1 = n->outPaths->begin(); it1 != n->outPaths->end(); it1++) {
-			Path *p = *it1;
-			cout << "    " << p->getUnit() << "  " << p->getUnitCost() << endl;
-
-		}
-
-		cout << n->getName() << "  " << n->inPaths->size() << "  " << n->outPaths->size() << endl;
+		//cout << n->getName() << "  " << n->inPaths->size() << "  " << n->outPaths->size() << endl;
 	}
 }
 int main(int argc, char *argv) {

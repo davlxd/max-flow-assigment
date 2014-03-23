@@ -11,7 +11,7 @@ public:
 	Node(string name);
 	string getName();
 
-	Node *next;
+	vector<Node*> *nextNodes;
 
 	vector<Path*> *inPaths;
 	vector<Path*> *outPaths;

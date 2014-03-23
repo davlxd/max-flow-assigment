@@ -24,112 +24,112 @@ void Map::initNodeList() {
 	Node *rostov = new Node("Rostov"); nodeList->push_back(rostov);
 	Node *t = new Node("T"); nodeList->push_back(t);
 
+	
 	Path *p = new Path(0, 1); //Magic number, just make sure 1 * [default limit] > [deault capacity]
-	s->addOutPaths(p);
-	boston->addInPaths(p);
+	s->nextNodes->push_back(boston); s->addOutPaths(p); boston->addInPaths(p);
 
 	p = new Path(0, 1); //Magic number, just make sure 1 * [default limit] > [deault capacity]
-	s->addOutPaths(p); jack->addInPaths(p);
+	s->nextNodes->push_back(jack); s->addOutPaths(p); jack->addInPaths(p);
 
 	p = new Path(50000, 150);
-	boston->addOutPaths(p); berlin->addInPaths(p);
+	boston->nextNodes->push_back(berlin); boston->addOutPaths(p); berlin->addInPaths(p);
 
 	p = new Path(30000, 240);
-	boston->addOutPaths(p); hamburg->addInPaths(p);
+	boston->nextNodes->push_back(hamburg); boston->addOutPaths(p); hamburg->addInPaths(p);
 
 	p = new Path(55000, 150);
-	boston->addOutPaths(p); istanbul->addInPaths(p);
+	boston->nextNodes->push_back(istanbul); boston->addOutPaths(p); istanbul->addInPaths(p);
 	
 	p = new Path(45000, 150);
-	boston->addOutPaths(p); london->addInPaths(p);
+	boston->nextNodes->push_back(london); boston->addOutPaths(p); london->addInPaths(p);
 
 	p = new Path(30000, 240);
-	boston->addOutPaths(p); rotterdam->addInPaths(p);
+	boston->nextNodes->push_back(rotterdam); boston->addOutPaths(p); rotterdam->addInPaths(p);
 
 	p = new Path(32000, 240);
-	boston->addOutPaths(p); napoli->addInPaths(p);
+	boston->nextNodes->push_back(napoli); boston->addOutPaths(p); napoli->addInPaths(p);
 
 	p = new Path(57000, 150);
-	jack->addOutPaths(p); berlin->addInPaths(p);
+	jack->nextNodes->push_back(berlin); jack->addOutPaths(p); berlin->addInPaths(p);
 
 	p = new Path(48000, 240);
-	jack->addOutPaths(p); hamburg->addInPaths(p);
+	jack->nextNodes->push_back(hamburg); jack->addOutPaths(p); hamburg->addInPaths(p);
 
 	p = new Path(61000, 150);
-	jack->addOutPaths(p); istanbul->addInPaths(p);
+	jack->nextNodes->push_back(istanbul); jack->addOutPaths(p); istanbul->addInPaths(p);
 
 	p = new Path(49000, 150);
-	jack->addOutPaths(p); london->addInPaths(p);
+	jack->nextNodes->push_back(london); jack->addOutPaths(p); london->addInPaths(p);
 
 	p = new Path(44000, 240);
-	jack->addOutPaths(p); rotterdam->addInPaths(p);
+	jack->nextNodes->push_back(rotterdam); jack->addOutPaths(p); rotterdam->addInPaths(p);
 
 	p = new Path(56000, 240);
-	jack->addOutPaths(p); napoli->addInPaths(p);
+	jack->nextNodes->push_back(napoli); jack->addOutPaths(p); napoli->addInPaths(p);
 
 	p = new Path(24000, 150);
-	berlin->addOutPaths(p); petersburg->addInPaths(p);
+	berlin->nextNodes->push_back(petersburg); berlin->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(3000, 17.6);
-	hamburg->addOutPaths(p); petersburg->addInPaths(p);
+	hamburg->nextNodes->push_back(petersburg); hamburg->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(28000, 150);
-	istanbul->addOutPaths(p); petersburg->addInPaths(p);
+	istanbul->nextNodes->push_back(petersburg); istanbul->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(22000, 150);
-	london->addOutPaths(p); petersburg->addInPaths(p);
+	london->nextNodes->push_back(petersburg); london->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(3000, 17.6);
-	rotterdam->addOutPaths(p); petersburg->addInPaths(p);
+	rotterdam->nextNodes->push_back(petersburg); rotterdam->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(5000, 17.6);
-	napoli->addOutPaths(p); petersburg->addInPaths(p);
+	napoli->nextNodes->push_back(petersburg); napoli->addOutPaths(p); petersburg->addInPaths(p);
 
 	p = new Path(22000, 150);
-	berlin->addOutPaths(p); moscow->addInPaths(p);
+	berlin->nextNodes->push_back(moscow); berlin->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(4000, 17.6);
-	hamburg->addOutPaths(p); moscow->addInPaths(p);
+	hamburg->nextNodes->push_back(moscow); hamburg->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(25000, 150);
-	istanbul->addOutPaths(p); moscow->addInPaths(p);
+	istanbul->nextNodes->push_back(moscow); istanbul->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(19000, 150);
-	london->addOutPaths(p); moscow->addInPaths(p);
+	london->nextNodes->push_back(moscow); london->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(5000, 17.6);
-	rotterdam->addOutPaths(p); moscow->addInPaths(p);
+	rotterdam->nextNodes->push_back(moscow); rotterdam->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(5000, 17.6);
-	napoli->addOutPaths(p); moscow->addInPaths(p);
+	napoli->nextNodes->push_back(moscow); napoli->addOutPaths(p); moscow->addInPaths(p);
 
 	p = new Path(23000, 150);
-	berlin->addOutPaths(p); rostov->addInPaths(p);
+	berlin->nextNodes->push_back(rostov); berlin->addOutPaths(p); rostov->addInPaths(p);
 
 	p = new Path(7000, 17.6);
-	hamburg->addOutPaths(p); rostov->addInPaths(p);
+	hamburg->nextNodes->push_back(rostov); hamburg->addOutPaths(p); rostov->addInPaths(p);
 
 	p = new Path(2000, 150);
-	istanbul->addOutPaths(p); rostov->addInPaths(p);
+	istanbul->nextNodes->push_back(rostov); istanbul->addOutPaths(p); rostov->addInPaths(p);
 
 	p = new Path(4000, 150);
-	london->addOutPaths(p); rostov->addInPaths(p);
+	london->nextNodes->push_back(rostov); london->addOutPaths(p); rostov->addInPaths(p);
 
 	p = new Path(8000, 17.6);
-	rotterdam->addOutPaths(p); rostov->addInPaths(p);
+	rotterdam->nextNodes->push_back(rostov); rotterdam->addOutPaths(p); rostov->addInPaths(p);
 
 	p = new Path(9000, 17.6);
-	napoli->addOutPaths(p); rostov->addInPaths(p);
+	napoli->nextNodes->push_back(rostov); napoli->addOutPaths(p); rostov->addInPaths(p);
 
 
 	p = new Path(0, 1); //Magic number, just make sure 1 * [default limit] > [deault capacity]
-	petersburg->addOutPaths(p); t->addInPaths(p);
+	petersburg->nextNodes->push_back(t); petersburg->addOutPaths(p); t->addInPaths(p);
 
 	p = new Path(0, 1); //Magic number, just make sure 1 * [default limit] > [deault capacity]
-	moscow->addOutPaths(p);	t->addInPaths(p);
+	moscow->nextNodes->push_back(t); moscow->addOutPaths(p);	t->addInPaths(p);
 
 	p = new Path(0, 1); //Magic number, just make sure 1 * [default limit] > [deault capacity]
-	rostov->addOutPaths(p);	t->addInPaths(p);
+	rostov->nextNodes->push_back(t); rostov->addOutPaths(p);	t->addInPaths(p);
 }
 
 void Map::init() {
