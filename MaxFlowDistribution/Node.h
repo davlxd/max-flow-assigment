@@ -19,6 +19,10 @@ public:
 	void addInPaths(Path *n);
 	void addOutPaths(Path *n);
 
+	long flow; //for EK usage
+	Node *preNode; //for EK usage
+	long itsCapacityGoesTo(Node *);
+
 private:
 	~Node();
 	string name;

@@ -15,6 +15,14 @@ void Node::addOutPaths(Path *n) {
 	outPaths->push_back(n);
 }
 
+long Node::itsCapacityGoesTo(Node *node) {
+	for (int i = 0; i < outPaths->size(); i++) {
+		if (nextNodes->at(i) == node) {
+			return outPaths->at(i)->getCapacity();
+		}
+	}
+}
+
 Node::~Node() {
 	delete inPaths;
 	//if (outPaths->size == 0) {

@@ -78,12 +78,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EK.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Path.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EK.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />

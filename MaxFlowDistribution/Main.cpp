@@ -3,6 +3,7 @@
 #include "Path.h"
 #include "Node.h"
 #include "Map.h"
+#include "EK.h"
 using namespace std;
 
 void test_path_functions() {
@@ -47,9 +48,32 @@ void test_map_init() {
 		//cout << n->getName() << "  " << n->inPaths->size() << "  " << n->outPaths->size() << endl;
 	}
 }
+
+
+void test_itsCapacityGoesTo() {
+	Map *map = new Map();
+	map->init();
+
+	Node *node0 = map->nodeList->at(0);
+	Node *node1 = map->nodeList->at(1);
+	Node *node2 = map->nodeList->at(2);
+	Node *node3 = map->nodeList->at(3);
+	Node *node9 = map->nodeList->at(9);
+
+	cout << node0->itsCapacityGoesTo(node2) << endl;
+	cout << node1->itsCapacityGoesTo(node3) << endl;
+	cout << node3->itsCapacityGoesTo(node9) << endl;
+
+}
+
 int main(int argc, char *argv) {
 	//test_node_init();
 	//test_path_functions();
-	test_map_init();
+	test_itsCapacityGoesTo();
+
+
+	//EK *ek = new EK();
+	//ek->getMaxFlow();
+
 	system("pause");
 }
