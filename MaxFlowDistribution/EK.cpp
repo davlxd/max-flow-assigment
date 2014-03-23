@@ -3,55 +3,82 @@
 //Edmond-Karp algo
 
 
-long EK::BFS(Node *s, Node *t) {
-	while (!myQueue.empty()) {
+long EK::BFS(int src, int des)
+{
+	int i, j;
+	while (!myQueue.empty())
 		myQueue.pop();
+	for (i = 1; i<13; ++i)
+	{
+		pre[i] = -1;
 	}
-	for (vector<Node*>::iterator it = map->nodeList->begin(); it != map->nodeList->end(); it++) {
-		Node *n = *it;
-		n->preNode = NULL;
-	}
-	
-	s->flow = EK::MAX_CAPACITY;
-	myQueue.push(s);
-	while (!myQueue.empty()) {
-		Node *index = myQueue.front();
+	pre[src] = 0;
+	flow[src] = EK::MAX_CAPACITY;
+	myQueue.push(src);
+	while (!myQueue.empty())
+	{
+		int index = myQueue.front();
 		myQueue.pop();
-		if (index == t)
+		if (index == des)
 			break;
-		for (int i = 1; i < map->nodeList->size(); i++) {
-			Node *current = map->nodeList->at(i);
-			if (current != s && index->itsCapacityGoesTo(current)>0 && current->preNode == NULL) {
-				current->preNode = index;
-				current->flow = min(index->itsCapacityGoesTo(current), index->flow);
-				myQueue.push(current);
+		for (i = 1; i<13; ++i)
+		{
+			if (i != src && capacity[index][i]>0 && pre[i] == -1)
+			{
+				pre[i] = index;
+				flow[i] = min(capacity[index][i], flow[index]);
+				myQueue.push(i);
 			}
 		}
 	}
-
-	if (t->preNode == NULL) {
-		return -1; // No augmenting path no more;
-	}
-	return t->flow;
+	if (pre[des] == -1)
+		return -1;
+	else
+		return flow[des];
 }
 
 
+long EK::maxFlow(int src, int des)
+{
+	int increasement = 0;
+	int sumflow = 0;
+	while ((increasement = BFS(src, des)) != -1)
+	{
+		int k = des;
+		while (k != src)
+		{
+			int last = pre[k];
+			capacity[last][k] -= increasement;
+			capacity[k][last] += increasement;
+			k = last;
+		}
+		sumflow += increasement;
+	}
+	return sumflow;
+}
 
+void EK::dataStruConvert() {
+	for (int i= 0; i < 13; i++) {
+		for (int j = 0; j < 13; j++){
+			Node *from = map->nodeList->at(i);
+			Node *to = map->nodeList->at(j);
+			capacity[i][j] = from->itsCapacityGoesTo(to);
+		}
+	}
+}
 
 void EK::getMaxFlow() {
 	map = new Map();
 	map->init();
 
+	dataStruConvert();
+	long max = maxFlow(1, 12);
+	cout << max << endl;
 
-	Node *s = map->nodeList->at(0);
-	Node *t = map->nodeList->at(map->nodeList->size() - 1);
-	long incre = 0;
-	long sunFlow = 0;
-	while ((incre = BFS(s, t)) != -1) {
-		Node *current = t;
-		while (current != s) {
-			Node *pre = current->preNode;
+	for (int i = 0; i < 13; i++) {
+		for (int j = 0; j < 13; j++){
+			cout << capacity[i][j] << "  ";
 		}
+		cout << endl;
 	}
-
 }

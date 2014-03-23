@@ -21,6 +21,7 @@ long Node::itsCapacityGoesTo(Node *node) {
 			return outPaths->at(i)->getCapacity();
 		}
 	}
+	return 0;
 }
 
 Node::~Node() {

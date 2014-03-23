@@ -69,11 +69,11 @@ void test_itsCapacityGoesTo() {
 int main(int argc, char *argv) {
 	//test_node_init();
 	//test_path_functions();
-	test_itsCapacityGoesTo();
+	//test_itsCapacityGoesTo();
 
 
-	//EK *ek = new EK();
-	//ek->getMaxFlow();
+	EK *ek = new EK();
+	ek->getMaxFlow();
 
 	system("pause");
 }
