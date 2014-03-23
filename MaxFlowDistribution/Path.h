@@ -2,17 +2,15 @@
 #define PATH_H
 
 #include <iostream>
-#include "Node.h"
+//#include "Node.h"
 using namespace std;
 
 class Path {
 public:
 	//There 2 magic numbers here
 	//capacity = 1000000 is max flow
-	Path(Node *from, Node *to, long unitCost) :capacity(1000000), limit(1000000), unitCost(unitCost){};
+	Path(long unitCost, double unit) :capacity(1000000), limit(1000000), unitCost(unitCost), unit(unit){};
 	
-	void setFrom(Node *from);
-	void setTo(Node *to);
 	
 	void setUnit(double unit);
 	double getUnit();
@@ -23,9 +21,8 @@ public:
 
 	long getCapacity();
 	long long getCapacityCost();
+
 private:
-	Node *from;
-	Node *to;
 	double unit;
 	int limit;
 	long capacity;

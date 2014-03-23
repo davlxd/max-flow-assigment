@@ -1,14 +1,5 @@
 # include "Path.h"
 
-void Path::setFrom(Node *from) {
-	this->from = from;
-//	from->addOutPaths(this);
-}
-
-void Path::setTo(Node *to) {
-	this->to = to;
-//	to->addInPaths(this);
-}
 
 void Path::setUnit(double unit) {
 	this->unit = unit;

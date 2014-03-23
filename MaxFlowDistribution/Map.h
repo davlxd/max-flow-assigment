@@ -12,14 +12,13 @@ class Map {
 public:
 	Map();
 	void init();
+	vector<Node *> *nodeList;
 
 private:
 	~Map();
 	void initNodeList();
-	void initPathList();
 	void uninit();
-	vector<Node *> *nodeList;
-	vector<Path *> *pathList;
+	
 
 };
 
